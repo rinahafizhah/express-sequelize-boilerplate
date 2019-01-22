@@ -1,9 +1,9 @@
-let users = [
-  { id: 1, name: "Gatot" },
-  { id: 2, name: "Bunda" },
-  { id: 3, name: "Ayah" }
-];
+const User = require("../models").user;
 
 exports.getUsers = (req, res) => {
-  res.json({ users });
+  User.findAll()
+    .then(users => res.json({ users }))
+    .catch(err => console.error(err));
 };
+
+exports.getUserById = async (req, res) => {};
